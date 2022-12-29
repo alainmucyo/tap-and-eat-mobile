@@ -3,7 +3,7 @@ import 'package:mobile/widgets/shared/input_widget.dart';
 import 'package:mobile/widgets/shared/primary_button.dart';
 
 import '../widgets/shared/app_drawer.dart';
-import 'package:flutter_nfc_reader/flutter_nfc_reader.dart';
+// import 'package:flutter_nfc_reader/flutter_nfc_reader.dart';
 
 class AddStudentsScreen extends StatefulWidget {
   const AddStudentsScreen({Key? key}) : super(key: key);
@@ -18,16 +18,16 @@ class _AddStudentsScreenState extends State<AddStudentsScreen> {
   String text = "";
   String _nfcData = "";
 
-  Future<void> _checkNfcSupport() async {
+ /* Future<void> _checkNfcSupport() async {
     NFCAvailability nfcAvailability =
         await FlutterNfcReader.checkNFCAvailability();
 
     setState(() {
       _nfcData = nfcAvailability.toString();
     });
-  }
+  }*/
 
-  @override
+/*  @override
   void initState() {
     // TODO: implement initState
     super.initState();
@@ -41,22 +41,22 @@ class _AddStudentsScreenState extends State<AddStudentsScreen> {
         });
       });
     });
-  }
+  }*/
 
   void read() {
-    FlutterNfcReader.onTagDiscovered().listen((onData) {
+ /*   FlutterNfcReader.onTagDiscovered().listen((onData) {
       print(onData.id);
       print(onData.content);
-    });
+    });*/
   }
 
   @override
   Widget build(BuildContext context) {
-    FlutterNfcReader.read().then((response) {
+   /* FlutterNfcReader.read().then((response) {
       setState(() {
         text = response.content?.toString() ?? "No content";
       });
-    });
+    });*/
     return Scaffold(
       appBar: AppBar(
         title: const Text('Add Students'),
