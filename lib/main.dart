@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile/nfc-scan.dart';
 import 'package:mobile/providers/reports_provider.dart';
 import 'package:mobile/screens/add-students.screen.dart';
 import 'package:mobile/screens/history.screen.dart';
@@ -68,7 +69,7 @@ class MyApp extends StatelessWidget {
                 ),
           ),
         ),
-        home: SplashScreen(),
+        home: NfcScanner(),
         routes: {
           DashboardScreen.routeName: (_) => const DashboardScreen(),
           LoginScreen.routeName: (_) => LoginScreen(),
