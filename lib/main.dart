@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile/nfc-scan.dart';
+import 'package:mobile/providers/history_provider.dart';
 import 'package:mobile/providers/reports_provider.dart';
 import 'package:mobile/screens/add-students.screen.dart';
 import 'package:mobile/screens/history.screen.dart';
@@ -51,6 +52,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider(dio)),
         ChangeNotifierProvider(create: (_) => ReportsProvider(dio)),
+        ChangeNotifierProvider(create: (_) => HistoryProvider(dio)),
 
       ],
       child: MaterialApp(

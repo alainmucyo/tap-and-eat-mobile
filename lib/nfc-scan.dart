@@ -10,6 +10,7 @@ class NfcScanner extends StatefulWidget {
 
 class _NfcScannerState extends State<NfcScanner> {
   ValueNotifier<dynamic> result = ValueNotifier(null);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +34,7 @@ class _NfcScannerState extends State<NfcScanner> {
                           child: ValueListenableBuilder<dynamic>(
                             valueListenable: result,
                             builder: (context, value, _) =>
-                                Text('${value ?? ''}'),
+                                Text('This is a response: ${value ?? ''}'),
                           ),
                         ),
                       ),

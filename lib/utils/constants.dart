@@ -24,7 +24,7 @@ class CustomColor {
 }
 
 class Constants {
-  static const BASE_URL = "https://b5ec-102-22-177-101.in.ngrok.io/api";
+  static const BASE_URL = "https://0ac3-105-178-37-124.eu.ngrok.io/api";
 }
 
 class Utils {
