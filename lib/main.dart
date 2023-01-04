@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
                 ),
           ),
         ),
-        home: NfcScanner(),
+        home: AddStudentsScreen(),
         routes: {
           DashboardScreen.routeName: (_) => const DashboardScreen(),
           LoginScreen.routeName: (_) => LoginScreen(),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/utils/constants.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 
 class NfcScanner extends StatefulWidget {
@@ -33,8 +34,10 @@ class _NfcScannerState extends State<NfcScanner> {
                         child: SingleChildScrollView(
                           child: ValueListenableBuilder<dynamic>(
                             valueListenable: result,
-                            builder: (context, value, _) =>
-                                Text('This is a response: ${value ?? ''}'),
+                            builder: (context, value, _) {
+                              Utils.showSnackBar(title: "Card scanned from value listenable builder", context: context);
+                              return Text('This is a response: ${value ?? ''}');
+                            },
                           ),
                         ),
                       ),
@@ -50,7 +53,6 @@ class _NfcScannerState extends State<NfcScanner> {
                         children: [
                           ElevatedButton(
                               child: Text('Tag Read'), onPressed: _tagRead),
-
                         ],
                       ),
                     ),
@@ -60,11 +62,17 @@ class _NfcScannerState extends State<NfcScanner> {
       ),
     );
   }
+
   void _tagRead() {
+    result.addListener(() {
+      print(result.value);
+      Utils.showSnackBar(
+          title: "NFC Scanned from add listener", context: context);
+    });
+
     NfcManager.instance.startSession(onDiscovered: (NfcTag tag) async {
       result.value = tag.data;
       NfcManager.instance.stopSession();
     });
   }
-
 }

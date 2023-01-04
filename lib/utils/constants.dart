@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 
 import '../providers/auth_provider.dart';
 import '../screens/login.dart';
+import 'dart:convert';
+import 'package:crypto/crypto.dart';
 
 
 class CustomColor {
@@ -24,7 +26,7 @@ class CustomColor {
 }
 
 class Constants {
-  static const BASE_URL = "https://0ac3-105-178-37-124.eu.ngrok.io/api";
+  static const BASE_URL = "https://8160-102-22-162-13.eu.ngrok.io/api";
 }
 
 class Utils {
@@ -67,5 +69,9 @@ class Utils {
     Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (BuildContext context) => LoginScreen()),
         ModalRoute.withName("/login"));
+  }
+
+  static String generateMd5(String input) {
+    return md5.convert(utf8.encode(input)).toString();
   }
 }
